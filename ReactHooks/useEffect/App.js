@@ -11,6 +11,11 @@ export default function App() {
 
   useEffect(()=>{
     window.addEventListener('resize',handleResize)
+    
+    // important to remove event listener to not to adding same event listener on the same component over and over again
+    return ()=>{
+      window.removeEventListener('resize',handleResize)
+    }
   },[])
 
   return (
